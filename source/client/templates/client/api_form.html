@@ -1,0 +1,39 @@
+{% load i18n client_tags %}
+<!doctype html>
+<head>
+    <style type="text/css" media="screen">
+        input[type=text] {
+            width: 300px;
+        }
+        table.form th {
+            text-align: left;
+            vertical-align: top;
+        }
+        table.form .helptext {
+            color: grey;
+        }
+        p.error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    {% if error_message %}
+        <p class="error">{{ error_message }}</p>
+    {% endif %}
+    <form action="." method="POST" accept-charset="utf-8">{% csrf_token %}
+        <table class="form">
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="{% trans "Submit" %}" />
+    </form>
+
+    {% if response != None %}
+        <p>Code: {{ response.status_code }} ({{ status_message }})</p>
+        {% if do_html %}
+            <div>{{ response.text|safe }}</div>
+        {% else %}
+            <pre>{{ response.text|prettyprint }}</pre>
+        {% endif %}
+    {% endif %}
+</body>

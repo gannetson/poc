@@ -1,0 +1,24 @@
+from settings.default_settings import *
+
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql_psycopg2', # Add 'postgresql_psycopg2', 'postgresql', 'mysql', 'sqlite3' or 'oracle'.
+        'NAME': '',                      # Or path to database file if using sqlite3.
+        'USER': '',                      # Not used with sqlite3.
+        'PASSWORD': '',                  # Not used with sqlite3.
+        'HOST': '',                      # Set to empty string for localhost. Not used with sqlite3.
+        'PORT': '',                      # Set to empty string for default. Not used with sqlite3.
+    }
+}
+
+# Give us some more time on the timestamps, easyer to work with the API from the browser
+API_TIMESTAMP_TIMEOUT = 6000
+
+# Log the authentication stuff, gives us the expected checksum in the console so we can eaely correct the request
+LOGGING['loggers']['api.authentication'] = {
+    'handlers': ['console'],
+    'level': 'DEBUG',
+}
+
+# No pretty errors, we really want to get the normal error page
+TASTYPIE_FULL_DEBUG = True

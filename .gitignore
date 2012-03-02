@@ -1,0 +1,3 @@
+*.pyc
+source/settings/local_settings.py
+docs/_build/**
