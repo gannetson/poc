@@ -6,6 +6,16 @@ Create a virtualenvironment and make sure it's activated.
 
 $ pip install -r requirements.txt
 $ cd source
+
+First we need to create a local_settings.py file in the settings folder, for convience there is a local_settings.example
+with some of the default data.
+
+$ cp settings/local_settings.example settings/local_settings.py
+
+Edit the local_settings.py file to point to your database.
+
+Then we need to add all the tables to the database, we use South for migrations which adds the --migrate option
+
 $ python manage.py syncdb --migrate
 
 
