@@ -11,7 +11,7 @@ Contents:
 
 
 .. image:: images/architechture.png
-
+   :alt: Architechture overview
 
 --------------------------
 Private API Authentication
@@ -43,6 +43,19 @@ It could also return 503 Service Unavailable, this usually means you have been d
 for details and reasoning for this implementation
 
 For the implementation of the Private API `django-tastypie`_ seems to be the one offering the most features for the private API
+
+Below are the sequence diagrams of how the different parts of the API work and what is processed in what order
+
+.. image:: images/1.invalid_api_key.png
+   :alt: Invalid API key sequence
+.. image:: images/2.invalid_timestamp.png
+    :alt: Invalid timestamp sequence
+.. image:: images/3.invalid_checksum.png
+    :alt: Invalid checksum sequence
+.. image:: images/4.no_permission.png
+    :alt: No permission
+.. image:: images/5.successful_request.png
+    :alt: Succesful request
 
 .. _django-tastypie: http://django-tastypie.readthedocs.org/
 
